@@ -8,12 +8,12 @@ def main():
     doctreen_logo = "https://static.wixstatic.com/media/cb6226_9226c5ad3a1a48e9abb5adbf8e8eb30a~mv2.png/v1/crop/x_53,y_0,w_1223,h_439/fill/w_291,h_104,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo%20horizontal%20fond%20blanc.png"
     
     st.set_page_config(page_title="Medical Tree Generator", page_icon=doctreen_icon)
-    tree_tuples = (None,'Email', 'Home phone', 'Mobile phone')
-    option = st.selectbox('Existing AI Generated Trees',tree_tuples)
+    # tree_tuples = (None,'Email', 'Home phone', 'Mobile phone')
+    # option = st.selectbox('Existing AI Generated Trees',tree_tuples)
     
-    if (option):
-        alreadyLink = f"https://front.interns.doctreen.io/edit/{option}"
-        st.link_button("Click Here to go selected tree",alreadyLink)
+    # if (option):
+    #     alreadyLink = f"https://front.interns.doctreen.io/edit/{option}"
+    #     st.link_button("Click Here to go selected tree",alreadyLink)
     
     st.markdown(f"""
         <div style="text-align: center;">
