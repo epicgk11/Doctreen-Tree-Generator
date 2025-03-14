@@ -1,0 +1,9 @@
+streamlit
+uuid
+bson
+pymongo
+datetime
+re
+graphviz
+langchain
+langchain_google_genai
