@@ -14,8 +14,8 @@ class CustomToDoctreenConverter:
         self.tree_name = tree_name
         self.client = pymongo.MongoClient(uri)
         self.db = self.client["doctreen"]
-        self.treenodes_collection = self.db["test_treenodes"]
-        self.trees_collection = self.db["test_trees"]
+        self.treenodes_collection = self.db["treenodes"]
+        self.trees_collection = self.db["trees"]
 
     def generate_unique_uuid(self,stream_lit_loop,index,total):
         attempts = 0
