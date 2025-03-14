@@ -1,6 +1,5 @@
 streamlit
 uuid
-bson
 pymongo
 DateTime
 regex
