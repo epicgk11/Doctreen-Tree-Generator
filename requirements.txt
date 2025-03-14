@@ -2,8 +2,8 @@ streamlit
 uuid
 bson
 pymongo
-datetime
-re
+DateTime
+regex
 graphviz
 langchain
-langchain_google_genai
+langchain-google-genai
