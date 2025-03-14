@@ -1,11 +1,11 @@
 import re
-import os
-import json
+# import os
+# import json
 from graphviz import Digraph
 from langchain.schema import SystemMessage, HumanMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
-from tqdm import tqdm
 import streamlit as st
+# from tqdm import tqdm
 
 API_KEY = st.secrets["general"]["api_key"]
 
@@ -575,10 +575,10 @@ RESULT: (TYPE_TITLE)
         stream_lit_text.text("Generating INDICATION tree...")
         stream_lit_bar.progress(self.current_step/(self.indication_iterations+self.technical_iterations+self.result_iterations),"Starting Indication tree generation")
         indication_text = self.generate_indication_tree(stream_lit_bar=stream_lit_bar)
-        stream_lit_text.text("Generating TECHNICAL tree...")
+        stream_lit_text.text("Successfully generated INDICATION tree. Generating TECHNICAL tree...")
         stream_lit_bar.progress(self.current_step/(self.indication_iterations+self.technical_iterations+self.result_iterations),"Starting Technical tree generation")
         technical_text = self.generate_technical_tree(stream_lit_bar=stream_lit_bar)
-        stream_lit_text.text("Generating RESULT tree...")
+        stream_lit_text.text("Successfully generated TECHNIQUE tree. Generating RESULT tree...")
         stream_lit_bar.progress(self.current_step/(self.indication_iterations+self.technical_iterations+self.result_iterations),"Starting Result tree generation")
         result_text = self.generate_result_tree(indication_text, technical_text,stream_lit_bar=stream_lit_bar)
         indication_nodes = self.parse_indentation_tree(indication_text)
@@ -597,10 +597,14 @@ RESULT: (TYPE_TITLE)
                                             list(result_dedup.values()))
         print(f"Length of combined tree: {len(combined_nodes)}")
         transformed_nodes = self.transform_nodes(combined_nodes)
-        with open(self.combined_json_filename, "w") as f:
-            json.dump(list(transformed_nodes.values()), f, indent=2)
-        print(f"Combined JSON saved to {self.combined_json_filename}")
+        stream_lit_text.text("Successfully generated and processed tree")
+        print(f"Returning the tree")
+        return list(transformed_nodes.values())
+                    
+        # with open(self.combined_json_filename, "w") as f:
+        #     json.dump(list(transformed_nodes.values()), f, indent=2)
+        # print(f"Combined JSON saved to {self.combined_json_filename}")
 
-        # self.plot_tree(transformed_nodes, self.combined_png_filename)
-        print(f"Length of combined tree: {len(transformed_nodes)}")
-        stream_lit_text.text("Completed and processed generated tree")
+        # # self.plot_tree(transformed_nodes, self.combined_png_filename)
+        # print(f"Length of combined tree: {len(transformed_nodes)}")
+        # stream_lit_text.text("Completed and processed generated tree")

@@ -1,9 +1,9 @@
-import json
+# import json
 import uuid
 from bson import ObjectId
 import pymongo
 from datetime import datetime
-from tqdm import tqdm
+# from tqdm import tqdm
 import streamlit as st
 
 URI = st.secrets["general"]["uri"]
@@ -14,8 +14,8 @@ class CustomToDoctreenConverter:
         self.tree_name = tree_name
         self.client = pymongo.MongoClient(uri)
         self.db = self.client["doctreen"]
-        self.treenodes_collection = self.db["treenodes"]
-        self.trees_collection = self.db["trees"]
+        self.treenodes_collection = self.db["test_treenodes"]
+        self.trees_collection = self.db["test_trees"]
 
     def generate_unique_uuid(self,stream_lit_loop,index,total):
         attempts = 0
